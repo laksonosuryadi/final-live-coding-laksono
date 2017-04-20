@@ -4,21 +4,27 @@ Description:
 
 Final Live Coding Phase 2.
 
-Sebuah project aplikasi CMS (Content Management System) dengan server API dan client side yang terpisah
+A project to make CMS (Content Management System) with separated server API dan client side.
 
-Step untuk menjalakan aplikasi ini :
+<br>
+Steps to run this app:
 
-Client Side
+**Client Side**
 ```
 npm install
-npm rum dev
+npm run dev
 ```
 <br>
 
-Server Side
+**Server Side**
 ```
 npm install
 npm start
+```
+
+To test the CRUD process you can use POSTMAN app
+```
+using http://localhost:3000/<insert-endpoint-name-here>
 ```
 
 -----
@@ -31,7 +37,7 @@ npm start
 |`/login/` | POST | Login and Verification |
 
 
-### Food
+### Users
 
 |Route | HTTP Method | Description |
 |------|:----:|-------------|

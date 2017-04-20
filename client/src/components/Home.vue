@@ -43,7 +43,6 @@
     <div class="threads" v-for="data in alldata">
       <router-link :to="'detail/'+data._id" id="removeUnderline">
         <h2>{{ data.title }}</h2>
-
         <h4>Author: {{data.author.username}}</h4>
       </router-link>
     </div>
