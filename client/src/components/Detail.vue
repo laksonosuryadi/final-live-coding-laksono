@@ -1,10 +1,11 @@
 <template>
   <div v-if="article != null">
-    <h3 id="login-as-who"><b>You are signing in as: {{ current.username }}.</b></h3>
-    <div class="containerQuestion">
+    <h5 id="login-as-who"><b>Signed in as: {{ current.name }}.</b></h5>
+    <div class="containerArticles">
       <h1>{{article.title}}</h1>
-      <h4>Author: {{article.author.username}}</h4>
-      <h4>{{article.content}}</h4>
+      <h4>Author: {{article.author.name}}</h4>
+      <hr>
+      <h4 id="arts">{{article.content}}</h4>
     </div>
   </div>
 </template>
@@ -62,14 +63,21 @@ export default {
 <style>
 
 #login-as-who {
-  padding: 20px;
-  padding-top: 80px;
+  padding-right: 40px;
+  padding-top: 20px;
+  float: right;
   color: DarkRed;
 }
 
-.containerQuestion {
+#arts {
+  line-height: 30px;
+}
+
+.containerArticles {
+  padding-top: 13px;
   padding-left: 40px;
   padding-bottom: 20px;
   padding-right: 40px;
+  line-height: 20pt;
 }
 </style>

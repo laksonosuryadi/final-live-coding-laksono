@@ -8,7 +8,7 @@ var signup = function(req, res, next) {
     name: req.body.name,
     username: req.body.username,
     password: passwordHash.generate(req.body.password),
-    email: req.body.email    
+    email: req.body.email
   }, function(err, user) {
     if(err){
       res.send(err)
@@ -79,6 +79,7 @@ var login = function(req,res) {
         let token = jwt.sign(
           {
             user: user._id,
+            name: user.name,
             username: user.username
           },
           process.env.SECRETKEYS

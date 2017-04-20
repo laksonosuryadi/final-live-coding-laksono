@@ -8,6 +8,7 @@ A project to make CMS (Content Management System) with separated server API dan 
 
 <br>
 Steps to run this app:
+<br>
 
 **Client Side**
 ```
@@ -21,8 +22,9 @@ npm run dev
 npm install
 npm start
 ```
+<br>
 
-To test the CRUD process you can use POSTMAN app
+**To test the CRUD API you can use POSTMAN app**
 ```
 using http://localhost:3000/<insert-endpoint-name-here>
 ```
@@ -52,7 +54,7 @@ using http://localhost:3000/<insert-endpoint-name-here>
 |`/current/` | GET | Get current User signing in |
 |`/articles/` | POST | Add new Article to Database |
 |`/articles/` | GET | Get all Articles from Database |
-|`/articles/:articlesId` | GET | Get 1 Article from Database |
-|`/articles/:articlesId` | PUT | Update 1 Article in Database |
-|`/articles/:articlesId` | DELETE | Remove 1 Article from Database |
+|`/articles/:articleId` | GET | Get 1 Article from Database |
+|`/articles/:articleId` | PUT | Update 1 Article in Database |
+|`/articles/:articleId` | DELETE | Remove 1 Article from Database |
 |`/articles/list/:authorId` | Get | Get Articles by Author ID |

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h3 id="login-as-who"><b>Welcome, {{ current.username }}.</b></h3>
+    <h3 id="login-as-who"><b>Welcome, {{ current.name }}.</b></h3>
 
 <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
     <!-- Button trigger modal List of My Article -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="listArticleBtn" @click="getMyArticles(current._id)">
-      List of my Articles
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="listArticleBtn" @click="getMyArticles(current._id)"><span class="glyphicon glyphicon-star"></span>
+      My Articles
     </button>
 
     <!-- Modal for List of My Article -->
@@ -24,7 +24,7 @@
             <textarea rows="1" cols="78" placeholder="Input edited title here..." v-model="editArticleTitle">
             </textarea><br>
             <h5><b><i>Edit Content</i></b></h5>
-            <textarea rows="1" cols="78" placeholder="Input edited content here..." v-model="editArticleContent">
+            <textarea rows="6" cols="78" placeholder="Input edited content here..." v-model="editArticleContent">
             </textarea><br>
             <button type="button" class="btn btn-primary" @click="editMyArticle(article._id)">Edit This Article</button>
             <button id="del" type="button" class="btn btn-default" data-dismiss="modal" @click="deleteMyArticle(article._id)">Delete This Article</button>
@@ -43,7 +43,7 @@
     <div class="threads" v-for="data in alldata">
       <router-link :to="'detail/'+data._id" id="removeUnderline">
         <h2>{{ data.title }}</h2>
-        <h4>Author: {{data.author.username}}</h4>
+        <h4>Author: {{data.author.name}}</h4>
       </router-link>
     </div>
 
@@ -51,7 +51,7 @@
 <!-- ADD NEW ARTICLE BUTTON AND MODAL -->
 
     <!-- Button trigger modal New Article -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" id="article">
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" id="addArticle">
       Add New Article
     </button>
 
@@ -228,6 +228,7 @@ export default {
   margin-right: 40px;
   margin-bottom: 30px;
   box-shadow: 5px 5px 5px #888888;
+  border-radius: 10px;
 }
 
 #login-as-who {
@@ -237,26 +238,45 @@ export default {
   margin-left: 20px;
 }
 
-#article {
+#addArticle {
+  margin-left: 40px;
+  background-color: White;
+  border-color: DarkRed;
+  margin-bottom: 50px;
+  margin-top: 30px;
+  color: DarkRed;
+}
+
+#addArticle:hover {
   margin-left: 40px;
   background-color: DarkRed;
   border-color: DarkRed;
   margin-bottom: 50px;
   margin-top: 30px;
+  color: White;
 }
 
 #listArticleBtn {
   margin-left: 40px;
+  background-color: White;
+  border-color: Green;
+  margin-bottom: 50px;
+  color: Green;
+}
+
+#listArticleBtn:hover {
+  margin-left: 40px;
   background-color: Green;
   border-color: Green;
   margin-bottom: 50px;
+  color: White;
 }
 
 #del {
   background-color: DarkRed;
   color: white;
   border-radius: 10px;
-
+  float: right;
 }
 
 #removeUnderline {
