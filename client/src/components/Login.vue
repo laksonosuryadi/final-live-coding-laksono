@@ -1,54 +1,56 @@
 <template>
-  <div id="loginpage">
-    <center>
-    Username:
-    <input type="text" v-model="username">
-    <br><br>
-    Password:
-    <input type="password" v-model="password">
-    <br>
-    <br>
-    <button type="submit" @click="login()" id="loginBtn">Login</button>
-    <br><br>
-    <p id="response">{{ response }}</p>
+  <div>
+    <center><br><h1>Welcome, to JS-Blog!</h1></center>
+      <div id="loginpage">
+        <center>
+        Username:
+        <input type="text" v-model="username">
+        <br><br>
+        Password:
+        <input type="password" v-model="password">
+        <br>
+        <br>
+        <button type="submit" @click="login()" id="loginBtn">Login</button>
+        <br><br>
+        <p id="response">{{ response }}</p>
 
-    <!-- Button trigger modal -->
-    <p>Don't have account? Please <a data-toggle="modal" data-target="#myModal">Sign Up</a></p>
+        <!-- Button trigger modal Sign Up-->
+        <p>Don't have account? <a data-toggle="modal" data-target="#myModal">Sign Up </a> for FREE</p>
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
-          </div>
-          <div class="modal-body">
-            Name:<br>
-            <textarea rows="2" cols="30" placeholder="Input your username here..." v-model="newName">
-            </textarea><br><br>
-            Email:<br>
-            <textarea rows="2" cols="30" placeholder="Input your username here..." v-model="newEmail">
-            </textarea><br><br>
-            Username:<br>
-            <textarea rows="2" cols="30" placeholder="Input your username here..." v-model="newUsername">
-            </textarea><br><br>
-            Password:<br>
-            <textarea rows="2" cols="30" placeholder="Input your password here..." v-model="newPassword">
-            </textarea>
-            <br>
-            <p style="color: red"><b>{{warning}}</b></p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" @click="signup()">Sign Up</button>
-            <br>
-
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+              </div>
+              <div class="modal-body">
+                <b>Name:</b><br>
+                <textarea rows="2" cols="30" placeholder="Input your username here..." v-model="newName">
+                </textarea><br><br>
+                <b>Email:</b><br>
+                <textarea rows="2" cols="30" placeholder="Input your username here..." v-model="newEmail">
+                </textarea><br><br>
+                <b>Username:</b><br>
+                <textarea rows="2" cols="30" placeholder="Input your username here..." v-model="newUsername">
+                </textarea><br><br>
+                <b>Password:</b><br>
+                <textarea rows="2" cols="30" placeholder="Input your password here..." v-model="newPassword">
+                </textarea>
+                <br>
+                <p style="color: red"><b>{{warning}}</b></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" @click="signup()">Sign Up</button>
+                <br>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </center>
     </div>
-  </center>
   </div>
 </template>
 
@@ -79,15 +81,12 @@ export default {
         .then(function (response){
           if (response.data.success == false) {
             self.response = response.data.msg
-            console.log(response);
           } else {
             self.response = response.data
-            console.log(response.data);
             self.$emit('login')
             localStorage.setItem('token', response.data)
             window.location = '/#/home'
           }
-
         })
         .catch(function(error){
           console.log(error);
@@ -115,15 +114,16 @@ export default {
 
 <style>
  #loginpage {
-   margin-top: 200px;
+   margin-top: 100px;
  }
 
  #loginBtn {
-   border-radius: 6px;
+   border-radius: 10px;
    background-color: white;
    color: DarkRed;
    font-weight: 800;
    padding: 10px 20px;
+   font-size: 13pt;
  }
 
  #loginBtn:hover {

@@ -1,8 +1,8 @@
 <template>
   <div v-if="article != null">
-    <h5 id="login-as-who"><b>Signed in as: {{ current.name }}.</b></h5>
+    <h5 id="login-as-who"><b>Signed in as: {{ current.name }}</b></h5>
     <div class="containerArticles">
-      <h1>{{article.title}}</h1>
+      <h1><b>{{article.title}}</b></h1>
       <h4>Author: {{article.author.name}}</h4>
       <hr>
       <h4 id="arts">{{article.content}}</h4>
@@ -61,7 +61,6 @@ export default {
 </script>
 
 <style>
-
 #login-as-who {
   padding-right: 40px;
   padding-top: 20px;
