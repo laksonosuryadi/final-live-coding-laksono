@@ -49,51 +49,27 @@
 
 <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 <!-- ADD NEW ARTICLE BUTTON AND MODAL -->
-
-    <!-- Button trigger modal New Article -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" id="addArticle">
-      Add New Article
-    </button>
-
-    <!-- Modal for New Article -->
-    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel2">New Article</h4>
-          </div>
-          <div class="modal-body">
-            <h4>Title</h4>
-            <textarea rows="4" cols="78" placeholder="Input title here..." v-model="newArticleTitle">
-            </textarea><br>
-            <h4>Content</h4>
-            <textarea rows="4" cols="78" placeholder="Input content here..." v-model="newArticleContent">
-            </textarea>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" @click="newArticle()">Post Article</button>
-          </div>
-        </div>
-      </div>
+    <div>
+      <router-link :to="'newarticle'" id="removeUnderline">
+        <button type="button" class="btn btn-primary btn-lg" id="addArticle"><span class="glyphicon glyphicon-plus"></span>
+          New Articles
+        </button>
+      </router-link>
     </div>
   </div>
 </template>
+
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
 
 <script>
 
 import axios from 'axios'
 
 export default {
-  name: 'isi',
-  components : {
-  },
   data() {
     return {
       alldata: [],
-      newArticleTitle: '',
-      newArticleContent: '',
       current: '',
       myArticles: '',
       editArticleTitle: '',
@@ -130,20 +106,6 @@ export default {
         console.log(error);
       })
     },
-
-    newArticle() {
-      let self = this;
-      axios.post(`http://localhost:3000/articles/`, {title: self.newArticleTitle, content: self.newArticleContent}, {headers: {'token': localStorage.getItem('token')}})
-      .then(function (response){
-        console.log(response);
-        self.getAllData();
-        $('#myModal2').modal('hide');
-      })
-      .catch(function(error){
-        console.log(error);
-      })
-    },
-
     getCurrentUser() {
       let config = {
         headers: {'token': localStorage.getItem('token')}
@@ -238,24 +200,6 @@ export default {
   margin-left: 20px;
 }
 
-#addArticle {
-  margin-left: 40px;
-  background-color: White;
-  border-color: DarkRed;
-  margin-bottom: 50px;
-  margin-top: 30px;
-  color: DarkRed;
-}
-
-#addArticle:hover {
-  margin-left: 40px;
-  background-color: DarkRed;
-  border-color: DarkRed;
-  margin-bottom: 50px;
-  margin-top: 30px;
-  color: White;
-}
-
 #listArticleBtn {
   margin-left: 40px;
   background-color: White;
@@ -268,6 +212,22 @@ export default {
   margin-left: 40px;
   background-color: Green;
   border-color: Green;
+  margin-bottom: 50px;
+  color: White;
+}
+
+#addArticle {
+  margin-left: 40px;
+  background-color: White;
+  border-color: DarkRed;
+  margin-bottom: 50px;
+  color: DarkRed;
+}
+
+#addArticle:hover {
+  margin-left: 40px;
+  background-color: DarkRed;
+  border-color: DarkRed;
   margin-bottom: 50px;
   color: White;
 }
@@ -285,5 +245,8 @@ export default {
 
 #rapi {
   margin-left: 40px;
+  border: 1px solid;
+  width: 160px;
+
 }
 </style>

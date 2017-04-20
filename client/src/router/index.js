@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Login from '@/components/Login'
 import Detail from '@/components/Detail'
+import Newarticle from '@/components/Newarticle'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
       name: 'Detail',
       component: Detail,
       props: true
+    },
+    {
+      path: '/newarticle',
+      name: 'Newarticle',
+      component: Newarticle
     }
   ]
 })
